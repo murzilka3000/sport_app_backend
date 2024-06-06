@@ -1,3 +1,6 @@
+import { prisma } from "./prisma.js"
+
 export const authUser = async (req, res) => {
-    res.json({message: 'Ты авторизировался'})
+    const user = await prisma.user.findMany()
+    res.json(user)
 }
